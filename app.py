@@ -85,15 +85,15 @@ smokecurrent = st.sidebar.radio("Smoking current?",tuple(feature_dict.keys()))
 # If the patient chest pain
 chestpain = st.sidebar.radio("chest pain",tuple(feature3_dict.keys()))
 # Level of the cho in the blood
-cho = st.sidebar.number_input("cholesterol (mmol/L)",0.01,20.00)
+cho = st.sidebar.number_input("cholesterol (mmol/L)",0,20)
 # Level of the rccach in the blood
-rccach = st.sidebar.number_input("right carotid plaque height (cm)",0.01,10.00)
+rccach = st.sidebar.number_input("right carotid plaque height (cm)",0,10)
 # Level of the max_ccach in the blood
-max_ccach = st.sidebar.number_input("maximum double carotid plaque height (cm)",0.01,10.00)
+max_ccach = st.sidebar.number_input("maximum double carotid plaque height (cm)",0,10)
 # Level of the max_ccacl in the blood
-max_ccacl = st.sidebar.number_input("maximum double carotid plaque length (cm)",0.01,10.00)
+max_ccacl = st.sidebar.number_input("maximum double carotid plaque length (cm)",0,10)
 # Level of the ps in the blood
-ps = st.sidebar.number_input("add double carotid plaque height (cm)",0.01,10.00)
+ps = st.sidebar.number_input("add double carotid plaque height (cm)",0,10)
 
 feature_list = [age,get_value(gender,gender_dict),get_fvalue(hypertension),get_hvalue(hpgrade),get_fvalue(diabete),get_fvalue(smokecurrent,),get_cvalue(chestpain),cho,rccach,max_ccach,max_ccacl,ps]
 pretty_result = {"age":age,"gender":gender,"hypertension ?":hypertension,"hypertension grade?":hpgrade, "Diabete":diabete,"Smoking current?":smokecurrent,"chest pain":chestpain,"cholesterol (mmol/L)" :cho, "right carotid plaque height (cm)":rccach, "maximum double carotid plaque height (cm)":max_ccach,"maximum double carotid plaque length (cm)":max_ccacl,"add double carotid plaque height (cm)":ps}
