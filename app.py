@@ -8,7 +8,7 @@ import warnings
 st.set_page_config(page_title="conorary Heart disease Prediction", page_icon="💉", layout='centered', initial_sidebar_state='auto')
 
 # Data columns
-feature_names_best = ['age', 'gender', 'hypertension','hpgrade', 'diabete', 'smokecurrent', 'chestpain','cho', 'rccach', 'max_ccach', 'max_ccacl', 'ps']
+feature_names_best = ['age', 'gender', 'hypertension','hpgrade', 'diabete', 'smokecurrent', 'chestpain','cho','crge','glu','avr_imt', 'rccach', 'max_ccach', 'max_ccacl', 'ps']
 
 
 gender_dict = {"Male":1,"Female":0}
@@ -85,18 +85,24 @@ smokecurrent = st.sidebar.radio("Smoking current?",tuple(feature_dict.keys()))
 # If the patient chest pain
 chestpain = st.sidebar.radio("chest pain",tuple(feature3_dict.keys()))
 # Level of the cho in the blood
-cho = st.sidebar.number_input("cholesterol (mmol/L)",0.0,20.0,0.1)
+cho = st.sidebar.number_input("cholesterol (mmol/L)",0.0,20.0)
+# Level of the creatinine in the blood
+crge = st.sidebar.number_input("creatinine (mmol/L)",0.0,200.0)
+# Level of the blood sugar in the blood
+glu = st.sidebar.number_input("blood sugar (mmol/L)",0.0,30.0)
+# Level of the avr_imt in the blood
+avr_imt = st.sidebar.number_input("average carotid intima-media thickness  (cm)",0.0,10.0)
 # Level of the rccach in the blood
-rccach = st.sidebar.number_input("right carotid plaque height (cm)",0.0,10.0,0.1)
+rccach = st.sidebar.number_input("right carotid plaque height (cm)",0.0,10.0)
 # Level of the max_ccach in the blood
-max_ccach = st.sidebar.number_input("maximum double carotid plaque height (cm)",0.0,10.0,0.1)
+max_ccach = st.sidebar.number_input("maximum double carotid plaque height (cm)",0.0,10.0)
 # Level of the max_ccacl in the blood
-max_ccacl = st.sidebar.number_input("maximum double carotid plaque length (cm)",0.0,10.0,0.1)
+max_ccacl = st.sidebar.number_input("maximum double carotid plaque length (cm)",0.0,10.0)
 # Level of the ps in the blood
-ps = st.sidebar.number_input("add double carotid plaque height (cm)",0.1,10.0,0.1)
+ps = st.sidebar.number_input("add double carotid plaque height (cm)",0.0,10.0)
 
-feature_list = [age,get_value(gender,gender_dict),get_fvalue(hypertension),get_hvalue(hpgrade),get_fvalue(diabete),get_fvalue(smokecurrent,),get_cvalue(chestpain),cho,rccach,max_ccach,max_ccacl,ps]
-pretty_result = {"age":age,"gender":gender,"hypertension ?":hypertension,"hypertension grade?":hpgrade, "Diabete":diabete,"Smoking current?":smokecurrent,"chest pain":chestpain,"cholesterol (mmol/L)" :cho, "right carotid plaque height (cm)":rccach, "maximum double carotid plaque height (cm)":max_ccach,"maximum double carotid plaque length (cm)":max_ccacl,"add double carotid plaque height (cm)":ps}
+feature_list = [age,get_value(gender,gender_dict),get_fvalue(hypertension),get_hvalue(hpgrade),get_fvalue(diabete),get_fvalue(smokecurrent,),get_cvalue(chestpain),cho,crge,glu,avr_imt,rccach,max_ccach,max_ccacl,ps]
+pretty_result = {"age":age,"gender":gender,"hypertension ?":hypertension,"hypertension grade?":hpgrade, "Diabete":diabete,"Smoking current?":smokecurrent,"chest pain":chestpain,"cholesterol (mmol/L)" :cho,"creatinine (mmol/L)":crge,"blood sugar (mmol/L)":glu,"average carotid intima-media thickness  (cm)":avr_imt, "right carotid plaque height (cm)":rccach, "maximum double carotid plaque height (cm)":max_ccach,"maximum double carotid plaque length (cm)":max_ccacl,"add double carotid plaque height (cm)":ps}
 '''
 ## These are the values you entered 🧑‍⚕
 '''
